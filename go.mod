@@ -1,8 +1,8 @@
-module github.com/caddy-dns/template
+module github.com/jjolano/caddy-dns-constellix
 
 go 1.16
 
 require (
 	github.com/caddyserver/caddy/v2 v2.4.1
-	github.com/libdns/template v0.1.0
+	github.com/jjolano/libdns-constellix
 )
