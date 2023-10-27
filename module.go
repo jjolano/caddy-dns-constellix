@@ -1,4 +1,4 @@
-package template
+package caddy-dns-constellix
 
 import (
 	"fmt"
@@ -28,8 +28,6 @@ func (Provider) CaddyModule() caddy.ModuleInfo {
 func (p *Provider) Provision(ctx caddy.Context) error {
 	p.Provider.APIKey = caddy.NewReplacer().ReplaceAll(p.Provider.APIKey, "")
 	p.Provider.SecretKey = caddy.NewReplacer().ReplaceAll(p.Provider.SecretKey, "")
-	
-	p.Provider.ZoneIDs = p.GetZoneIDMap()
 	return nil;
 }
 
@@ -85,6 +83,8 @@ func (p *Provider) UnmarshalCaddyfile(d *caddyfile.Dispenser) error {
 	if p.Provider.SecretKey == "" {
 		return d.Err("missing Secret key")
 	}
+
+	p.Provider.ZoneIDs = p.GetZoneIDMap()
 	return nil
 }
 
