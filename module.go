@@ -1,4 +1,4 @@
-package caddy-dns-constellix
+package constellix
 
 import (
 	"fmt"
